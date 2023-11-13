@@ -63,8 +63,8 @@ def generate_pdf(non_fichye,kontni,teks):
             f.write(pieds)
             print(teks)
 
-def modifier(nouvo):
-    with open("fich.pdf", "rb") as existing_file:
+def modifier(non_fichye,nouvo):
+    with open(non_fichye, "rb") as existing_file:
         pdf_content = bytearray(existing_file.read())
     insertion_point = pdf_content.find(b")\r\n                >>\r\n                endobj\r\n\r\n")
     if insertion_point != -1:
