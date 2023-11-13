@@ -73,5 +73,5 @@ def modifier(non_fichye,nouvo):
         with open("fich.pdf", "wb") as modified_file:
             modified_file.write(pdf_content)
     else:
-        print("Emplacement non trouvé pour l'ajout de texte.")
+        print("Emplacement non trouvé pour ajouter le texte")
        
