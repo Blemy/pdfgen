@@ -62,3 +62,16 @@ def generate_pdf(non_fichye,kontni,teks):
             f.write(corps) 
             f.write(pieds)
             print(teks)
+
+def modifier(nouvo):
+    with open("fich.pdf", "rb") as existing_file:
+        pdf_content = bytearray(existing_file.read())
+    insertion_point = pdf_content.find(b")\r\n                >>\r\n                endobj\r\n\r\n")
+    if insertion_point != -1:
+        new_text = f" {nouvo}".encode("utf-8")
+        pdf_content = pdf_content[:insertion_point] + new_text + pdf_content[insertion_point:]
+        with open("fich.pdf", "wb") as modified_file:
+            modified_file.write(pdf_content)
+    else:
+        print("Emplacement non trouvé pour l'ajout de texte.")
+       
